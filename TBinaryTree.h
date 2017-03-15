@@ -114,13 +114,8 @@ public:
     // Done
 	TNode * Find(const value_type & value)
     {
-        static TNode *currentNode;
+        static TNode *currentNode = Root;
         static int count = 0;
-
-        if(count == 0)
-        {
-            currentNode = Root;
-        }
 
         if (currentNode == nullptr)
         {
@@ -135,7 +130,7 @@ public:
         }
 
 
-        if (value < Root->Data) {
+        if (value < currentNode->Data) {
             currentNode = currentNode->Left;
             return Find(value);
         } else{
