@@ -8,7 +8,7 @@ struct TExistElementException
 	: public std::exception
 {
 	TExistElementException(char const* const message) throw()
-		: std::exception()
+		: std::exception(message)
 	{
 	}
 };
@@ -18,7 +18,7 @@ struct TNotFoundException
 	: public std::exception
 {
 	TNotFoundException(char const* const message) throw()
-		: std::exception()
+		: std::exception(message)
 	{ }
 };
 
@@ -114,12 +114,20 @@ public:
     // Done
 	TNode * Find(const value_type & value)
     {
-        static TNode *currentNode = Root;
+        static TNode *currentNode;
+        static int count = 0;
+
+        if(count == 0)
+        {
+            currentNode = Root;
+        }
 
         if (currentNode == nullptr)
         {
             throw TNotFoundException("Not found!");
         }
+
+        count ++;
 
         if (value == currentNode->Data)
         {
