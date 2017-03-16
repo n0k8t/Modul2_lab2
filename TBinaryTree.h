@@ -57,7 +57,7 @@ public:
 private:
 	TNode * Root = nullptr;
 
-	static void Print(std::ostream & out, TBinaryTree::TNode * node)
+    static void Print(std::ostream & out, TBinaryTree::TNode * node)
 	{
 		if (node)
 		{
@@ -115,14 +115,12 @@ public:
 	TNode * Find(const value_type & value)
     {
         static TNode *currentNode = Root;
-        static int count = 0;
 
         if (currentNode == nullptr)
         {
             throw TNotFoundException("Not found!");
         }
 
-        count ++;
 
         if (value == currentNode->Data)
         {
