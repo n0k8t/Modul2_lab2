@@ -24,6 +24,7 @@ int main()
 
         std::cout << tree << std::endl << std::endl;
 
+        
         try
         {
             TBinaryTree::TNode * found = tree.Find(2);
@@ -35,5 +36,22 @@ int main()
             std::cout << "Exception works" << std::endl;
             std::cout << e.what();
         }
+
+                
+        std::cout << std::endl;
+
+        
+        try
+        {
+            TBinaryTree::TNode * found_ = tree.Find(15);
+            if(found_)
+                std::cout << found_->Data;
+        }
+        catch (const TNotFoundException & e)
+        {
+            std::cout << "Exception works" << std::endl;
+            std::cout << e.what();
+        }
+        
     }
 }
