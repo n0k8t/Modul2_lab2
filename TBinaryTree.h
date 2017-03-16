@@ -115,6 +115,13 @@ public:
 	TNode * Find(const value_type & value)
     {
         static TNode *currentNode = Root;
+        static bool count = false;
+
+        if (count && currentNode != Root)
+        {
+            count = false;
+            currentNode = Root;
+        }
 
         if (currentNode == nullptr)
         {
@@ -124,6 +131,7 @@ public:
 
         if (value == currentNode->Data)
         {
+            count = true;
             return currentNode;
         }
 
