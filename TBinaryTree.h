@@ -111,63 +111,64 @@ public:
 	// + Требуется реализовать функцию поиска элемента
 	// + Если узел содержит искомый элемент, то функция возвращает указатель на этот узел
 	// + Если элемента в дереве не найдено, то функция генерирует исключение TNotFoundException
-    // Done
+    	// Done
 	/*
 	TNode * Find(const value_type & value)
-    {
-        static TNode *currentNode = Root;
-        static bool count = false;
+	{
+		static TNode *currentNode = Root;
+		static bool count = false;
 
-        if (count && currentNode != Root)
-        {
-            count = false;
-            currentNode = Root;
-        }
+		if (count && currentNode != Root)
+		{
+		    count = false;
+		    currentNode = Root;
+		}
 
-        if (currentNode == nullptr)
-        {
-            throw TNotFoundException("Not found!");
-        }
-
-
-        if (value == currentNode->Data)
-        {
-            count = true;
-            return currentNode;
-        }
+		if (currentNode == nullptr)
+		{
+		    throw TNotFoundException("Not found!");
+		}
 
 
-        if (value < currentNode->Data) {
-            currentNode = currentNode->Left;
-            return Find(value);
-        } else{
-            currentNode = currentNode->Right;
-            return Find(value);
-        }
-    }
+		if (value == currentNode->Data)
+		{
+		    count = true;
+		    return currentNode;
+		}
+
+
+		if (value < currentNode->Data) {
+		    currentNode = currentNode->Left;
+		    return Find(value);
+		} else{
+		    currentNode = currentNode->Right;
+		    return Find(value);
+		}
+	}
 	*/
 	
 	TNode * Find(const value_type & value) 
-    {
-        if (Root == nullptr) 
-        {
-            throw TNotFoundException("Not found!");
-        }
+    	{
+        	if (Root == nullptr) 
+        	{
+            		throw TNotFoundException("Not found!");
+        	}
 
-        TNode *currentNode = Root;
+        	TNode *currentNode = Root;
 
-        while (currentNode != nullptr) {
-            if (value == currentNode->Data) {
-                return currentNode;
-            } else if (value < currentNode->Data)
-            {
-                currentNode = currentNode->Left;
-            } else 
-            {
-                currentNode = currentNode->Right;
-            }
-        }
-    }
+        	while (currentNode != nullptr) 
+		{
+            		if (value == currentNode->Data) {
+            	    		return currentNode;
+            		} else if (value < currentNode->Data)
+            		{
+                		currentNode = currentNode->Left;
+            		} else 
+            		{
+                		currentNode = currentNode->Right;
+            		}
+        	}
+    	}
 
 	friend std::ostream& operator << (std::ostream & out, const TBinaryTree& tree);
 };
