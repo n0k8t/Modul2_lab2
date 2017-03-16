@@ -112,6 +112,7 @@ public:
 	// + Если узел содержит искомый элемент, то функция возвращает указатель на этот узел
 	// + Если элемента в дереве не найдено, то функция генерирует исключение TNotFoundException
     // Done
+	/*
 	TNode * Find(const value_type & value)
     {
         static TNode *currentNode = Root;
@@ -142,6 +143,29 @@ public:
         } else{
             currentNode = currentNode->Right;
             return Find(value);
+        }
+    }
+	*/
+	
+	TNode * Find(const value_type & value) 
+    {
+        if (Root == nullptr) 
+        {
+            throw TNotFoundException("Not found!");
+        }
+
+        TNode *currentNode = Root;
+
+        while (currentNode != nullptr) {
+            if (value == currentNode->Data) {
+                return currentNode;
+            } else if (value < currentNode->Data)
+            {
+                currentNode = currentNode->Left;
+            } else 
+            {
+                currentNode = currentNode->Right;
+            }
         }
     }
 
