@@ -32,6 +32,7 @@ int main()
         }
         catch (const TNotFoundException & e)
         {
+            std::cout << "Exception works" << std::endl;
             std::cout << e.what();
         }
     }
