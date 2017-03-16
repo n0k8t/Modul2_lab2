@@ -22,7 +22,7 @@ int main()
             std::cout << e.what();
         }
 
-        std::cout << tree;
+        std::cout << tree << std::endl << std::endl;
 
         try
         {
